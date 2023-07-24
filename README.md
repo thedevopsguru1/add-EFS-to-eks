@@ -8,8 +8,10 @@
 ```
 aws eks describe-cluster --name your_cluster_name --query "cluster.identity.oidc.issuer" --output text
 ```
+![image](https://github.com/thedevopsguru1/add-EFS-to-eks/assets/126810742/70ebb446-a54b-4ced-b4e2-13c225d9d040)
+
 ![image](https://github.com/thedevopsguru1/add-EFS-to-eks/assets/126810742/d8a38785-9065-4b68-827b-9f7382b27912)
-![image](https://github.com/thedevopsguru1/add-EFS-to-eks/assets/126810742/a9ab9e6a-93a8-4df7-8fc7-7bca59d254be)
+
 
 
 
