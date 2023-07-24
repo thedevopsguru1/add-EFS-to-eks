@@ -43,7 +43,20 @@ aws iam list-open-id-connect-providers
 ```
 aws efs describe-file-systems --query "FileSystems[*].FileSystemId" --output text
 ```
+## 3- Install Driver 
+```
+helm repo add aws-efs-csi-driver https://kubernetes-sigs.github.io/aws-efs-csi-driver/
+```
+```
+helm repo update aws-efs-csi-driver
+```
+```
+helm upgrade --install aws-efs-csi-driver --namespace kube-system aws-efs-csi-driver/aws-efs-csi-driver
+```
 
+https://github.com/kubernetes-sigs/aws-efs-csi-driver aws-efs-csi-driver
+
+## 4- Add NFS LINK
 #### Dynamic nfs
 ##### On AWS EFS , here it is
 ####### Create a EFS and then copy the DNS name of the EFS
