@@ -65,6 +65,7 @@ https://github.com/kubernetes-sigs/aws-efs-csi-driver aws-efs-csi-driver
 ```
 helm install nfs-subdir-external-provisioner nfs-subdir-external-provisioner/nfs-subdir-external-provisioner --set nfs.server=fs-0e4070b4c27a59f48.efs.us-east-2.amazonaws.com  --set nfs.path=/
 ```
+#### the the storage class to the PVC :  nfs-client
 https://github.com/thedevopsguru1/dynamic-nfs-provisioing
 
 
