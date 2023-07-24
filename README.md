@@ -31,3 +31,11 @@ you should see this:
 
 ## 2- Keep follow the steps here:
 #### Follow the requirements here: https://repost.aws/knowledge-center/eks-persistent-storage
+#### For YOUR_AWS_ACCOUNT_ID : run the command
+```
+aws iam list-open-id-connect-providers
+```
+![image](https://github.com/thedevopsguru1/add-EFS-to-eks/assets/126810742/241a6271-eeff-48f5-bbdd-da1fcc83a74a)
+
+
+
