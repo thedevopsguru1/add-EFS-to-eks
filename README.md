@@ -37,5 +37,14 @@ aws iam list-open-id-connect-providers
 ```
 ![image](https://github.com/thedevopsguru1/add-EFS-to-eks/assets/126810742/241a6271-eeff-48f5-bbdd-da1fcc83a74a)
 
+####  Replace XXXXXXXXXX45D83924220DC4815XXXXX with the value
+![image](https://github.com/thedevopsguru1/add-EFS-to-eks/assets/126810742/044c8017-611d-4e35-87ae-e8760ab0bfdc)
+##### For  --file-system-id
+```
+aws efs describe-file-systems --query "FileSystems[*].FileSystemId" --output text
+```
+
+
+
 
 
