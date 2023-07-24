@@ -62,7 +62,10 @@ helm repo update aws-efs-csi-driver
 ```
 helm upgrade --install aws-efs-csi-driver --namespace kube-system aws-efs-csi-driver/aws-efs-csi-driver --set controller.serviceAccount.create=false --set controller.serviceAccount.name=efs-csi-controller-sa
 ```
-
+If you did not create SA,then run this
+```
+helm upgrade --install aws-efs-csi-driver --namespace kube-system aws-efs-csi-driver/aws-efs-csi-driver 
+```
 https://github.com/kubernetes-sigs/aws-efs-csi-driver aws-efs-csi-driver
 
 ## 4- Add NFS LINK
