@@ -29,9 +29,5 @@ you should see this:
 ![image](https://github.com/thedevopsguru1/add-EFS-to-eks/assets/126810742/6339b1bf-a568-41e9-9609-b8983c51075a)
 
 
-## 2 - reating a role for web identity or OIDC
-
-https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp_oidc.html
-
-
-######
+## 2- Keep follow the steps here:
+#### Follow the requirements here: https://repost.aws/knowledge-center/eks-persistent-storage
