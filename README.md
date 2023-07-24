@@ -8,6 +8,11 @@
 aws efs create-file-system --creation-token eks-efs --encrypted
 ```
 ## 1- Create OIDC
+### To add OIDC while creating eks : simply add this flag
+```
+--with-oidc
+````
+### If the Cluster is create , follow the steps below
 ### You can simply run this command: 
 ```
 eksctl utils associate-iam-oidc-provider --cluster my-cluster --approve
