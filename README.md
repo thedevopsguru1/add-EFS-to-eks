@@ -45,6 +45,13 @@ aws efs describe-file-systems --query "FileSystems[*].FileSystemId" --output tex
 ```
 
 #### Dynamic nfs
+##### On AWS EFS , here it is
+####### Create a EFS and then copy the DNS name of the EFS
+![image](https://github.com/thedevopsguru1/dynamic-nfs-provisioing/assets/126810742/c2136ea6-eb7e-4f4c-bf39-3eed8f5ff764)
+
+```
+helm install nfs-subdir-external-provisioner nfs-subdir-external-provisioner/nfs-subdir-external-provisioner --set nfs.server=fs-0e4070b4c27a59f48.efs.us-east-2.amazonaws.com  --set nfs.path=/
+```
 https://github.com/thedevopsguru1/dynamic-nfs-provisioing
 
 
