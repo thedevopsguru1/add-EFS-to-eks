@@ -44,6 +44,9 @@ aws iam list-open-id-connect-providers
 aws efs describe-file-systems --query "FileSystems[*].FileSystemId" --output text
 ```
 
+#### Dynamic nfs
+https://github.com/thedevopsguru1/dynamic-nfs-provisioing
+
 
 
 
