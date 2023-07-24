@@ -3,6 +3,10 @@
 ### Prerequisites
 
 #### Follow the requirements here: https://repost.aws/knowledge-center/eks-persistent-storage
+#### FOR the encrypted EFS 
+```
+aws efs create-file-system --creation-token eks-efs --encrypted
+```
 ## 1- Create OIDC
 ### You can simply run this command: 
 ```
