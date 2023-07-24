@@ -1,8 +1,14 @@
 # add-EFS-to-eks
 
 ### Prerequisites
-## 1- Create OIDC
+
 #### Follow the requirements here: https://repost.aws/knowledge-center/eks-persistent-storage
+## 1- Create OIDC
+### You can simply run this command: 
+```
+eksctl utils associate-iam-oidc-provider --cluster my-cluster --approve
+```
+#### or follows the steps below:
 #### Create OIDC ROle first: https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp_oidc.html
 #### For the OIDC setup follow this: https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc.html
 ###### The Provider URL comme from : run this command: 
@@ -23,8 +29,9 @@ you should see this:
 ![image](https://github.com/thedevopsguru1/add-EFS-to-eks/assets/126810742/6339b1bf-a568-41e9-9609-b8983c51075a)
 
 
+## 2 - reating a role for web identity or OIDC
 
-
+https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp_oidc.html
 
 
 ######
