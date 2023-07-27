@@ -3,7 +3,7 @@
 ### Prerequisites
 
 #### Follow the requirements here: https://repost.aws/knowledge-center/eks-persistent-storage
-#### FOR the encrypted EFS 
+###Create encrypted EFS 
 ```
 aws efs create-file-system --creation-token eks-efs --encrypted
 ```
