@@ -162,12 +162,14 @@ aws efs create-mount-target --file-system-id FileSystemId --subnet-id SubnetID -
 ```
 ## 5- Create NFS-CLIENT
 ```
-
-
-
-
-
-
+helm repo add nfs-subdir-external-provisioner https://kubernetes-sigs.github.io/nfs-subdir-external-provisioner
+```
+```
+helm repo update nfs-subdir-external-provisioner
+```
+```
+helm upgrade --install nfs-subdir-external-provisioner nfs-subdir-external-provisioner/nfs-subdir-external-provisioner --set nfs.server=fs-0e6c8b8e20cd5356f.efs.us-east-2.amazonaws.com  --set nfs.path=/ --set storageClass.defaultClass=default --set storageClass.name=second-nfs-client
+```
 
 
 #### For YOUR_AWS_ACCOUNT_ID : run the command
