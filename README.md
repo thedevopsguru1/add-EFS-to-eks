@@ -3,10 +3,7 @@
 ### Prerequisites
 
 #### Follow the requirements here: https://repost.aws/knowledge-center/eks-persistent-storage
-###Create encrypted EFS 
-```
-aws efs create-file-system --creation-token eks-efs --encrypted
-```
+
 ## 1- Create OIDC
 ### To add OIDC while creating eks : simply add this flag
 ```
@@ -48,7 +45,7 @@ aws eks describe-cluster --name your_cluster_name --query "cluster.identity.oidc
 ```
 aws iam list-open-id-connect-providers
 ```
-###C- Download the IAM policy document from GitHub:
+### C- Download the IAM policy document from GitHub:
 ```
 curl -o iam-policy-example.json https://raw.githubusercontent.com/kubernetes-sigs/aws-efs-csi-driver/master/docs/iam-policy-example.json
 ```
@@ -132,6 +129,45 @@ helm upgrade --install aws-efs-csi-driver --namespace kube-system aws-efs-csi-dr
 ```
 https://github.com/kubernetes-sigs/aws-efs-csi-driver aws-efs-csi-driver
 
+## 4- Create encrypted EFS 
+
+### A- Get the VPC ID for your Amazon EKS cluster:
+```
+aws eks describe-cluster --name your_cluster_name --query "cluster.resourcesVpcConfig.vpcId" --output text
+```
+###### Note: In step 3, replace your_cluster_name with your cluster name.
+### B-  Get the CIDR range for your VPC cluster:
+```
+aws ec2 describe-vpcs --vpc-ids YOUR_VPC_ID --query "Vpcs[].CidrBlock" --output text
+```
+###### Note: In step 4, replace the YOUR_VPC_ID with the VPC ID from the preceding step 3.
+### C-  Create a security group that allows inbound network file system (NFS) traffic for your Amazon EFS mount points:
+```
+aws ec2 create-security-group --description efs-test-sg --group-name efs-sg --vpc-id YOUR_VPC_ID
+```
+###### Note: Replace YOUR_VPC_ID with the output from the preceding step 3. Save the GroupId for later.
+### D- Add an NFS inbound rule so that resources in your VPC can communicate with your Amazon EFS file system:
+```
+aws ec2 authorize-security-group-ingress --group-id sg-xxx --protocol tcp --port 2049 --cidr YOUR_VPC_CIDR
+```
+######  Note: Replace YOUR_VPC_CIDR with the output from the preceding step 4. Replace sg-xxx with the security group ID from the preceding step 5.
+### E- Create EFS
+```
+aws efs create-file-system --creation-token eks-efs --encrypted
+```
+###### Note: Save the FileSystemId for later use.
+### F- To create a mount target for Amazon EFS, run the following command:
+```
+aws efs create-mount-target --file-system-id FileSystemId --subnet-id SubnetID --security-group sg-xxx
+```
+## 5- Create NFS-CLIENT
+```
+
+
+
+
+
+
 
 
 #### For YOUR_AWS_ACCOUNT_ID : run the command
@@ -145,6 +181,7 @@ aws iam list-open-id-connect-providers
 ##### For  --file-system-id
 ```
 aws efs describe-file-systems --query "FileSystems[*].FileSystemId" --output text
+```
 ```
 
 ## 4- Add NFS LINK
