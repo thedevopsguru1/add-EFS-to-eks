@@ -17,7 +17,7 @@ eksctl utils associate-iam-oidc-provider --cluster my-cluster --approve
 #### or follows the steps below:
 #### Create OIDC ROle first: https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp_oidc.html
 #### For the OIDC setup follow this: https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc.html
-###### The Provider URL comme from : run this command: 
+###### The Provider URL comes from : run this command: 
 ```
 aws eks describe-cluster --name your_cluster_name --query "cluster.identity.oidc.issuer" --output text
 ```
