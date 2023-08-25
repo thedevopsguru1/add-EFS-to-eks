@@ -156,7 +156,7 @@ aws ec2 authorize-security-group-ingress --group-id sg-xxx --protocol tcp --port
 aws efs create-file-system --creation-token eks-efs --encrypted
 ```
 ###### Note: Save the FileSystemId for later use.
-### F- To create a mount target for Amazon EFS, run the following command:
+### F- To create a mount target for Amazon EFS, run the following command: ( do this for each subnets of each ec2 instances)
 ```
 aws efs create-mount-target --file-system-id FileSystemId --subnet-id SubnetID --security-group sg-xxx
 ```
