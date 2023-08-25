@@ -5,11 +5,11 @@
 #### Follow the requirements here: https://repost.aws/knowledge-center/eks-persistent-storage
 
 ## 1- Create OIDC
-### To add OIDC while creating eks : simply add this flag
+### To add OIDC while creating an EKS Cluster: simply add this flag
 ```
 --with-oidc
 ````
-### If the Cluster is create , follow the steps below
+### If the Cluster is created, follow the steps below
 ### You can simply run this command: 
 ```
 eksctl utils associate-iam-oidc-provider --cluster my-cluster --approve
